@@ -1,5 +1,5 @@
 
-export const baseURL =   'https://e-commerce-complete-project-gpf2.vercel.app/?vercelToolbarCode=d_aVO4iG4EEEc9V'     //"http://localhost:8080"
+export const baseURL =   "https://blinkit-iyawo.vercel.app"     //"http://localhost:8080"
 
 const SummaryApi = {
     register : {
