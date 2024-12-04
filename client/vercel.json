@@ -1,8 +1,22 @@
+
 {
-    "rewrites" : [
+    "version" : 1,
+    "name" : "Full Stack",
+    "routes" : [
+      {
+          "src" : "/(.*)",
+          "dest" : "/"
+      }
+    ],
+      "rewrites" : [
         {
         "source" : "/(.*)",
         "destination" : "/"
         }
     ]
-}
+    
+  }
+
+
+
+
