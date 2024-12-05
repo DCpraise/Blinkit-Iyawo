@@ -7,7 +7,7 @@
   
       }
     ],
-    "rewrites":[
+    "route":[
       {
           "src" : "/(.*)",
           "dest" : "/"
