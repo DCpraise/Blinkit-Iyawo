@@ -9,7 +9,7 @@ import SummaryApi from '../common/SummaryApi'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { loadStripe } from '@stripe/stripe-js'
-import { PaystackButton } from 'react-paystack'
+
 const CheckoutPage = () => {
   const { notDiscountTotalPrice, totalPrice, totalQty, fetchCartItem,fetchOrder } = useGlobalContext()
   const [openAddress, setOpenAddress] = useState(false)
@@ -17,7 +17,6 @@ const CheckoutPage = () => {
   const [selectAddress, setSelectAddress] = useState(0)
   const cartItemsList = useSelector(state => state.cartItem.cart)
   const navigate = useNavigate()
-  
 
   const handleCashOnDelivery = async() => {
       try {
@@ -53,8 +52,6 @@ const CheckoutPage = () => {
       }
   }
 
-  
-
   const handleOnlinePayment = async()=>{
     try {
         toast.loading("Loading...")
@@ -85,49 +82,7 @@ const CheckoutPage = () => {
         AxiosToastError(error)
     }
   }
-
-
-
-
-  const publicKey = "pk_live_c689790384e7edb27527a5d275dfb25077cd7d1f";
-    const [ email, setEmail ] = useState("");
-    const [error, SetError] = useState("")
-    const  amount = `${DisplayPriceInRupees(totalPrice)}`
-
-    const style = {
-      input: "block w-full px-4 py-2 mb-4 rounded-md border border-gray-300 focus:outline-none focus:border-primary-500 required",
-      button: "block w-full px-4 py-2 bg-[#1369A1] text-white rounded-md"
-    }    
-
-
-
-  const componentProps = {
-    email,
-    amount: totalPrice * 100,
-   
-    publicKey,
-    text: "Online Payment",
-    onSuccess: () =>
-     handleCashOnDelivery(),
-    onClose: () => {alert('order cancelled')},
-   
-  }
-
-  const handleSumbmit = (event) => {
-    event.preventDefault();
-    if(!email){
-      SetError('please fill out all field');
-      return;
-    }
-  };
-  
-
-
-
   return (
-    
-    <form onSubmit={handleSumbmit} >
-
     <section className='bg-blue-50'>
       <div className='container mx-auto p-4 flex flex-col lg:flex-row w-full gap-5 justify-between'>
         <div className='w-full'>
@@ -154,20 +109,14 @@ const CheckoutPage = () => {
                 )
               })
             }
-            <div onClick={() => setOpenAddress(true)} className='h-16 bg-blue-50 border-2 border-dashed flex justify-center items-center cursor-pointer' >
+            <div onClick={() => setOpenAddress(true)} className='h-16 bg-blue-50 border-2 border-dashed flex justify-center items-center cursor-pointer'>
               Add address
             </div>
-
           </div>
+
+
+
         </div>
-        <input type="email" placeholder="  Email address..." className= {style.input} value={email} onChange={(e) => {setEmail(e.target.value); 
-              if(!e.target.value){
-                SetError('all field is required')
-              } else {
-                SetError('')
-              }
-            }} />
-             {error && <span className='text-red-600 animate-pulse font-semibold text-center -mt-3'>{error}</span>}
 
         <div className='w-full max-w-md bg-white py-4 px-2'>
           {/**summary**/}
@@ -191,15 +140,11 @@ const CheckoutPage = () => {
               <p>{DisplayPriceInRupees(totalPrice)}</p>
             </div>
           </div>
-
-
           <div className='w-full flex flex-col gap-4'>
-            <div className='py-2 px-4 bg-green-600 hover:bg-green-700 rounded text-white text-center font-semibold' type='submit'>
-            <PaystackButton  {...componentProps} />
-            </div>
+            <button className='py-2 px-4 bg-green-600 hover:bg-green-700 rounded text-white font-semibold' onClick={handleOnlinePayment}>Online Payment</button>
+
             <button className='py-2 px-4 border-2 border-green-600 font-semibold text-green-600 hover:bg-green-600 hover:text-white' onClick={handleCashOnDelivery}>Cash on Delivery</button>
           </div>
-          
         </div>
       </div>
 
@@ -210,8 +155,6 @@ const CheckoutPage = () => {
         )
       }
     </section>
-    </form>
-    
   )
 }
 

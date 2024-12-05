@@ -66,9 +66,6 @@ const Home = () => {
                           className='w-full h-full object-scale-down'
                         />
                     </div>
-                    <div className='text-center text-sm font-semibold'>
-                    {cat?.name}
-                    </div>
                   </div>
                 )
               })
