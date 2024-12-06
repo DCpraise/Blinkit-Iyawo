@@ -158,13 +158,13 @@ const ProductDisplayPage = () => {
                 : (
                   // <button className='my-4 px-4 py-1 bg-green-600 hover:bg-green-700 text-white rounded'>Add</button>
                   <div className='my-4'>
-                    <AddToCartButton data={data}/>
+                    <AddToCartButton nameText="Add to cart" data={data}/>
                   </div>
                 )
               }
            
 
-            <h2 className='font-semibold'>Why shop from binkeyit? </h2>
+            <h2 className='font-semibold'>Why shop from Iyawoshop? </h2>
             <div>
                   <div className='flex  items-center gap-4 my-4'>
                       <img
@@ -174,7 +174,7 @@ const ProductDisplayPage = () => {
                       />
                       <div className='text-sm'>
                         <div className='font-semibold'>Superfast Delivery</div>
-                        <p>Get your orer delivered to your doorstep at the earliest from dark stores near you.</p>
+                        <p>Get your order delivered to your doorstep at the earliest from  stores near you.</p>
                       </div>
                   </div>
                   <div className='flex  items-center gap-4 my-4'>
@@ -185,7 +185,7 @@ const ProductDisplayPage = () => {
                       />
                       <div className='text-sm'>
                         <div className='font-semibold'>Best Prices & Offers</div>
-                        <p>Best price destination with offers directly from the nanufacturers.</p>
+                        <p>Best price destination with offers directly from the manufacturers.</p>
                       </div>
                   </div>
                   <div className='flex  items-center gap-4 my-4'>
@@ -196,7 +196,7 @@ const ProductDisplayPage = () => {
                       />
                       <div className='text-sm'>
                         <div className='font-semibold'>Wide Assortment</div>
-                        <p>Choose from 5000+ products across food personal care, household & other categories.</p>
+                        <p>Choose from 5000+ products across kitchen, household & other categories.</p>
                       </div>
                   </div>
             </div>

@@ -8,7 +8,7 @@ import Loading from './Loading'
 import { useSelector } from 'react-redux'
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
-const AddToCartButton = ({ data }) => {
+const AddToCartButton = ({ data, nameText ="Add" }) => {
     const { fetchCartItem, updateCartItem, deleteCartItem } = useGlobalContext()
     const [loading, setLoading] = useState(false)
     const cartItem = useSelector(state => state.cartItem.cart)
@@ -94,7 +94,7 @@ const AddToCartButton = ({ data }) => {
                     </div>
                 ) : (
                     <button onClick={handleADDTocart} className='bg-green-600 hover:bg-green-700 text-white px-2 lg:px-4 py-1 rounded'>
-                        {loading ? <Loading /> : "Add"}
+                        {loading ? <Loading /> : nameText}
                     </button>
                 )
             }

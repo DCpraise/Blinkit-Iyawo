@@ -1,4 +1,4 @@
-export const baseURL = "https://blinkit-iyawo.vercel.app"
+export const baseURL =   "http://localhost:8080"  //"https://blinkit-iyawo.vercel.app"
 
 const SummaryApi = {
     register : {

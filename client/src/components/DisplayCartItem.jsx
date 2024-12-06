@@ -66,7 +66,7 @@ const DisplayCartItem = ({close}) => {
                                                             <p className='font-semibold'>{DisplayPriceInRupees(pricewithDiscount(item?.productId?.price,item?.productId?.discount))}</p>
                                                         </div>
                                                         <div>
-                                                            <AddToCartButton data={item?.productId}/>
+                                                            <AddToCartButton nameText='Add to cart' data={item?.productId}/>
                                                         </div>
                                                     </div>
                                                 )
