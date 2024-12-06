@@ -53,23 +53,23 @@ const Search = () => {
                         <TypeAnimation
                                 sequence={[
                                     // Same substring at the start will only be typed out once, initially
-                                    'Search "milk"',
+                                    'Search "blender"',
                                     1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                    'Search "bread"',
+                                    'Search "microwave"',
                                     1000,
-                                    'Search "sugar"',
+                                    'Search "souvenir"',
                                     1000,
-                                    'Search "panner"',
+                                    'Search "pot set"',
                                     1000,
-                                    'Search "chocolate"',
+                                    'Search "air fryer"',
                                     1000,
-                                    'Search "curd"',
+                                    'Search "flask"',
                                     1000,
-                                    'Search "rice"',
+                                    'Search "pressure pot"',
                                     1000,
-                                    'Search "egg"',
+                                    'Search "gas cooker"',
                                     1000,
-                                    'Search "chips"',
+                                    'Search "electric pot"',
                                 ]}
                                 wrapper="span"
                                 speed={50}
@@ -81,7 +81,7 @@ const Search = () => {
                     <div className='w-full h-full'>
                         <input
                             type='text'
-                            placeholder='Search for atta dal and more.'
+                            placeholder='Search for products and more.'
                             autoFocus
                             defaultValue={searchText}
                             className='bg-transparent w-full h-full outline-none'
