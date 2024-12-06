@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "paystack": "^2.0.1",
+    "react-paystack": "^6.0.0"
+  }
+}

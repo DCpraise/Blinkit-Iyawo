@@ -9,6 +9,7 @@ import SummaryApi from '../common/SummaryApi'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { loadStripe } from '@stripe/stripe-js'
+import { PaystackButton } from 'react-paystack'
 
 const CheckoutPage = () => {
   const { notDiscountTotalPrice, totalPrice, totalQty, fetchCartItem,fetchOrder } = useGlobalContext()
@@ -82,7 +83,49 @@ const CheckoutPage = () => {
         AxiosToastError(error)
     }
   }
+
+
+
+
+  const publicKey = "pk_live_c689790384e7edb27527a5d275dfb25077cd7d1f";
+  const [ email, setEmail ] = useState("");
+  const [error, SetError] = useState("")
+  const [number,setNumber] = useState("")
+  const  amount = `${DisplayPriceInRupees(totalPrice)}`
+
+  const style = {
+    input: "block w-full px-4 py-2 mb-4 rounded-md border border-gray-300 focus:outline-none focus:border-primary-500 required",
+    button: "block w-full px-4 py-2 bg-[#1369A1] text-white rounded-md"
+  }    
+
+
+
+const componentProps = {
+  email,
+  amount: totalPrice * 100,
+  metadata: {
+    number,
+  },
+  publicKey,
+  text: "Online Payment",
+  onSuccess: () =>
+   handleCashOnDelivery(),
+  onClose: () => {navigate("/cancel")},
+ 
+}
+
+const handleSumbmit = (event) => {
+  event.preventDefault();
+  if(!email){
+    SetError('please fill out all field');
+    return;
+  }
+  if(!number){
+    SetError('please input mobile number')
+  }
+};
   return (
+    <form onSubmit={handleSumbmit}>
     <section className='bg-blue-50'>
       <div className='container mx-auto p-4 flex flex-col lg:flex-row w-full gap-5 justify-between'>
         <div className='w-full'>
@@ -95,7 +138,8 @@ const CheckoutPage = () => {
                   <label htmlFor={"address" + index} className={!address.status && "hidden"}>
                     <div className='border rounded p-3 flex gap-3 hover:bg-blue-50'>
                       <div>
-                        <input id={"address" + index} type='radio' value={index} onChange={(e) => setSelectAddress(e.target.value)} name='address' />
+                      <input id={"address" + index} type='radio' value={index} onChange={(e) => setSelectAddress(e.target.value)} name='address' />
+
                       </div>
                       <div>
                         <p>{address.address_line}</p>
@@ -114,9 +158,24 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-
-
+          
         </div>
+        <input type="number" placeholder="Confirm Mobile Number" className= {style.input} value={number} onChange={(e) => {setNumber(e.target.value); 
+              if(!e.target.value){
+                SetError('all field is required')
+              } else {
+                SetError('')
+              }
+            }}/>
+        <input type="email" placeholder="  Email address..." className= {style.input} value={email} onChange={(e) => {setEmail(e.target.value); 
+              if(!e.target.value){
+                SetError('all field is required')
+              } else {
+                SetError('')
+              }
+            }}/>
+                         {error && <span className='text-red-600 animate-pulse font-semibold text-center -mt-3'>{error}</span>}
+
 
         <div className='w-full max-w-md bg-white py-4 px-2'>
           {/**summary**/}
@@ -141,9 +200,10 @@ const CheckoutPage = () => {
             </div>
           </div>
           <div className='w-full flex flex-col gap-4'>
-            <button className='py-2 px-4 bg-green-600 hover:bg-green-700 rounded text-white font-semibold' onClick={handleOnlinePayment}>Online Payment</button>
-
-            <button className='py-2 px-4 border-2 border-green-600 font-semibold text-green-600 hover:bg-green-600 hover:text-white' onClick={handleCashOnDelivery}>Cash on Delivery</button>
+          <div className='py-2 px-4 bg-green-600 hover:bg-green-700 rounded text-white text-center font-semibold' type='submit'>
+            <PaystackButton  {...componentProps} />
+            </div>
+            <button className='py-2 px-4 border-2 border-green-600 font-semibold text-green-600 hover:bg-green-600 hover:text-white' onClick={handleCashOnDelivery}>Order via WhatsApp</button>
           </div>
         </div>
       </div>
@@ -155,6 +215,7 @@ const CheckoutPage = () => {
         )
       }
     </section>
+    </form>
   )
 }
 
