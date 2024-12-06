@@ -1,4 +1,4 @@
-export const baseURL = "https://blinkit-iyawo.vercel.app/?vercelToolbarCode=tQsQ8s1hd8jnXa6"
+export const baseURL = "https://blinkit-iyawo.vercel.app"
 
 const SummaryApi = {
     register : {
