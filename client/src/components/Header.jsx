@@ -64,21 +64,25 @@ const Header = () => {
                                 {/**logo */}
                                 <div className='h-12'>
                                     <Link to={"/"} className='h-full flex justify-center items-center'>
-                                        <img 
+                                    <h1 className=' text-2xl font-bold text-yellow-500 ml-2'>Blink-<span className='text-green-600 font-serif'>Dilivery</span></h1>
+
+
+                                        {/* <img 
                                             src={logo}
                                             width={170}
                                             height={60}
                                             alt='logo'
                                             className='hidden lg:block'
-                                        />
-                                        <img 
+                                        /> */}
+                                        {/* <img 
                                             src={logo}
                                             width={120}
                                             height={60}
                                             alt='logo'
                                             className='lg:hidden'
-                                        />
+                                        /> */}
                                     </Link>
+                                    
                                 </div>
 
                                 {/**Search */}

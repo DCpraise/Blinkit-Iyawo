@@ -77,7 +77,7 @@ const Register = () => {
 
                 <form className='grid gap-4 mt-6' onSubmit={handleSubmit}>
                     <div className='grid gap-1'>
-                        <label htmlFor='name'>Name :</label>
+                        <label htmlFor='name' className='font-normal'>Name :</label>
                         <input
                             type='text'
                             id='name'
@@ -90,7 +90,7 @@ const Register = () => {
                         />
                     </div>
                     <div className='grid gap-1'>
-                        <label htmlFor='email'>Email :</label>
+                        <label htmlFor='email'className='font-normal' >Email :</label>
                         <input
                             type='email'
                             id='email'
@@ -102,7 +102,7 @@ const Register = () => {
                         />
                     </div>
                     <div className='grid gap-1'>
-                        <label htmlFor='password'>Password :</label>
+                        <label htmlFor='password' className='font-normal'>Password :</label>
                         <div className='bg-blue-50 p-2 border rounded flex items-center focus-within:border-primary-200'>
                             <input
                                 type={showPassword ? "text" : "password"}
@@ -125,7 +125,7 @@ const Register = () => {
                         </div>
                     </div>
                     <div className='grid gap-1'>
-                        <label htmlFor='confirmPassword'>Confirm Password :</label>
+                        <label htmlFor='confirmPassword' className='font-normal'>Confirm Password :</label>
                         <div className='bg-blue-50 p-2 border rounded flex items-center focus-within:border-primary-200'>
                             <input
                                 type={showConfirmPassword ? "text" : "password"}

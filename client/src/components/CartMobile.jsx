@@ -21,13 +21,13 @@ const CartMobileLink = () => {
                             <FaCartShopping/>
                         </div>
                         <div className='text-xs'>
-                                <p>{totalQty} items</p>
-                                <p>{DisplayPriceInRupees(totalPrice)}</p>
+                                <p className='font-normal'>{totalQty} items</p>
+                                <p className='font-normal'>{DisplayPriceInRupees(totalPrice)}</p>
                         </div>
                     </div>
 
                     <Link to={"/cart"} className='flex items-center gap-1'>
-                        <span className='text-sm'>View Cart</span>
+                        <span className='text-sm font-normal'>View Cart</span>
                         <FaCaretRight/>
                     </Link>
                 </div>
