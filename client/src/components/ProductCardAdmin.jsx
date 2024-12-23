@@ -49,8 +49,8 @@ const ProductCardAdmin = ({ data, fetchProductData }) => {
         <p className='text-ellipsis line-clamp-2 font-medium'>{data?.name}</p>
         <p className='text-slate-400'>{data?.unit}</p>
         <div className='grid grid-cols-2 gap-3 py-2'>
-          <button onClick={()=>setEditOpen(true)} className='border px-1 py-1 text-sm border-green-600 bg-green-100 text-green-800 hover:bg-green-200 rounded'>Edit</button>
-          <button onClick={()=>setOpenDelete(true)} className='border px-1 py-1 text-sm border-red-600 bg-red-100 text-red-600 hover:bg-red-200 rounded'>Delete</button>
+          <button onClick={()=>setEditOpen(true)} className='border px-1 py-1 text-sm border-green-600 bg-green-100 text-green-800 hover:bg-green-200 rounded font-normal'>Edit</button>
+          <button onClick={()=>setOpenDelete(true)} className='border px-1 py-1 text-sm border-red-600 bg-red-100 text-red-600 hover:bg-red-200 rounded font-normal'>Delete</button>
         </div>
 
         {
@@ -69,10 +69,10 @@ const ProductCardAdmin = ({ data, fetchProductData }) => {
                           <IoClose size={25}/>
                         </button>
                     </div>
-                    <p className='my-2'>Are you sure want to delete permanent ?</p>
+                    <p className='my-2 font-normal'>Are you sure want to delete permanent ?</p>
                     <div className='flex justify-end gap-5 py-4'>
-                      <button onClick={handleDeleteCancel} className='border px-3 py-1 rounded bg-red-100 border-red-500 text-red-500 hover:bg-red-200'>Cancel</button>
-                      <button onClick={handleDelete} className='border px-3 py-1 rounded bg-green-100 border-green-500 text-green-500 hover:bg-green-200'>Delete</button>
+                      <button onClick={handleDeleteCancel} className='border px-3 py-1 rounded bg-red-100 border-red-500 text-red-500 hover:bg-red-200 font-normal'>Cancel</button>
+                      <button onClick={handleDelete} className='border px-3 py-1 rounded bg-green-100 border-green-500 text-green-500 hover:bg-green-200 font-normal'>Delete</button>
                     </div>
                 </div>
             </section>

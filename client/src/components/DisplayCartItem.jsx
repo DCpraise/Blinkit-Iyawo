@@ -45,7 +45,7 @@ const DisplayCartItem = ({close}) => {
                     cartItem[0] ? (
                         <>
                             <div className='flex items-center justify-between px-4 py-2 bg-blue-100 text-blue-500 rounded-full'>
-                                    <p>Your total savings</p>
+                                    <p className='font-semibold'>Your total savings</p>
                                     <p>{DisplayPriceInRupees(notDiscountTotalPrice - totalPrice )}</p>
                             </div>
                             <div className='bg-white rounded-lg p-4 grid gap-5 overflow-auto'>
@@ -77,20 +77,20 @@ const DisplayCartItem = ({close}) => {
                             <div className='bg-white p-4'>
                                 <h3 className='font-semibold'>Bill details</h3>
                                 <div className='flex gap-4 justify-between ml-1'>
-                                    <p>Items total</p>
-                                    <p className='flex items-center gap-2'><span className='line-through text-neutral-400'>{DisplayPriceInRupees(notDiscountTotalPrice)}</span><span>{DisplayPriceInRupees(totalPrice)}</span></p>
+                                    <p className='font-normal'>Items total</p>
+                                    <p className='flex items-center gap-2 font-normal'><span className='line-through text-neutral-400 font-normal'>{DisplayPriceInRupees(notDiscountTotalPrice)}</span><span>{DisplayPriceInRupees(totalPrice)}</span></p>
                                 </div>
                                 <div className='flex gap-4 justify-between ml-1'>
-                                    <p>Quntity total</p>
-                                    <p className='flex items-center gap-2'>{totalQty} item</p>
+                                    <p className='font-normal'>Quntity total</p>
+                                    <p className='flex items-center gap-2 font-normal'>{totalQty} item</p>
                                 </div>
                                 <div className='flex gap-4 justify-between ml-1'>
-                                    <p>Delivery Charge</p>
-                                    <p className='flex items-center gap-2'>Free</p>
+                                    <p className='font-normal'>Delivery Charge</p>
+                                    <p className='flex items-center gap-2 font-normal'>Free</p>
                                 </div>
                                 <div className='font-semibold flex items-center justify-between gap-4'>
                                     <p >Grand total</p>
-                                    <p>{DisplayPriceInRupees(totalPrice)}</p>
+                                    <p className='font-normal'>{DisplayPriceInRupees(totalPrice)}</p>
                                 </div>
                             </div>
                         </>
@@ -100,7 +100,7 @@ const DisplayCartItem = ({close}) => {
                                 src={imageEmpty}
                                 className='w-full h-full object-scale-down' 
                             />
-                            <Link onClick={close} to={"/"} className='block bg-green-600 px-4 py-2 text-white rounded'>Shop Now</Link>
+                            <Link onClick={close} to={"/"} className='block bg-green-600 px-4 py-2 text-white rounded font-normal'>Shop Now</Link>
                         </div>
                     )
                 }

@@ -9,7 +9,7 @@ const NoData = () => {
         alt='no data'
         className='w-36' 
       />
-      <p className='text-neutral-500'>No Data</p>
+      <p className='text-neutral-500 font-normal'>No Data</p>
     </div>
   )
 }

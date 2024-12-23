@@ -35,7 +35,7 @@ const Product = () => {
   },[])
 
   return (
-    <div>
+    <div className='font-normal'>
       Product
     </div>
   )

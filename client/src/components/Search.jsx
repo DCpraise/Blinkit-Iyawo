@@ -50,7 +50,7 @@ const Search = () => {
                 !isSearchPage ? (
                      //not in search page
                      <div onClick={redirectToSearchPage} className='w-full h-full flex items-center'>
-                        <TypeAnimation
+                        <TypeAnimation className='font-normal'
                                 sequence={[
                                     // Same substring at the start will only be typed out once, initially
                                     'Search "blender"',

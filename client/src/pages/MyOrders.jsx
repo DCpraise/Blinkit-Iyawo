@@ -20,7 +20,7 @@ const MyOrders = () => {
           orders.map((order,index)=>{
             return(
               <div key={order._id+index+"order"} className='order rounded p-4 text-sm'>
-                  <p>Order No : {order?.orderId}</p>
+                  <p className='font-normal'>Order No : {order?.orderId}</p>
                   <div className='flex gap-3'>
                     <img
                       src={order.product_details.image[0]} 

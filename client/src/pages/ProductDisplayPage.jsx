@@ -105,18 +105,18 @@ const ProductDisplayPage = () => {
             <div className='my-4  hidden lg:grid gap-3 '>
                 <div>
                     <p className='font-semibold'>Description</p>
-                    <p className='text-base'>{data.description}</p>
+                    <p className='text-base font-normal'>{data.description}</p>
                 </div>
                 <div>
                     <p className='font-semibold'>Unit</p>
-                    <p className='text-base'>{data.unit}</p>
+                    <p className='text-base font-normal'>{data.unit}</p>
                 </div>
                 {
                   data?.more_details && Object.keys(data?.more_details).map((element,index)=>{
                     return(
                       <div>
                           <p className='font-semibold'>{element}</p>
-                          <p className='text-base'>{data?.more_details[element]}</p>
+                          <p className='text-base font-normal'>{data?.more_details[element]}</p>
                       </div>
                     )
                   })
@@ -126,9 +126,9 @@ const ProductDisplayPage = () => {
 
 
         <div className='p-4 lg:pl-7 text-base lg:text-lg'>
-            <p className='bg-green-300 w-fit px-2 rounded-full'>10 Min</p>
-            <h2 className='text-lg font-semibold lg:text-3xl'>{data.name}</h2>  
-            <p className=''>{data.unit}</p> 
+            <p className='bg-green-300 w-fit px-2 rounded-full font-normal'>10 Min</p>
+            <h2 className='text-lg font-semibold lg:text-3xl '>{data.name}</h2>  
+            <p className='font-normal'>{data.unit}</p> 
             <Divider/>
             <div>
               <p className=''>Price</p> 
@@ -138,12 +138,12 @@ const ProductDisplayPage = () => {
                 </div>
                 {
                   data.discount && (
-                    <p className='line-through'>{DisplayPriceInRupees(data.price)}</p>
+                    <p className='line-through font-normal'>{DisplayPriceInRupees(data.price)}</p>
                   )
                 }
                 {
                   data.discount && (
-                    <p className="font-bold text-green-600 lg:text-2xl">{data.discount}% <span className='text-base text-neutral-500'>Discount</span></p>
+                    <p className="font-bold text-green-600 lg:text-2xl ">{data.discount}% <span className='text-base text-neutral-500 font-normal'>Discount</span></p>
                   )
                 }
                 
@@ -153,7 +153,7 @@ const ProductDisplayPage = () => {
               
               {
                 data.stock === 0 ? (
-                  <p className='text-lg text-red-500 my-2'>Out of Stock</p>
+                  <p className='text-lg text-red-500 my-2 font-normal'>Out of Stock</p>
                 ) 
                 : (
                   // <button className='my-4 px-4 py-1 bg-green-600 hover:bg-green-700 text-white rounded'>Add</button>
@@ -174,7 +174,7 @@ const ProductDisplayPage = () => {
                       />
                       <div className='text-sm'>
                         <div className='font-semibold'>Superfast Delivery</div>
-                        <p>Get your order delivered to your doorstep at the earliest from  stores near you.</p>
+                        <p className='font-normal'>Get your order delivered to your doorstep at the earliest from  stores near you.</p>
                       </div>
                   </div>
                   <div className='flex  items-center gap-4 my-4'>
@@ -185,7 +185,7 @@ const ProductDisplayPage = () => {
                       />
                       <div className='text-sm'>
                         <div className='font-semibold'>Best Prices & Offers</div>
-                        <p>Best price destination with offers directly from the manufacturers.</p>
+                        <p className='font-normal'>Best price destination with offers directly from the manufacturers.</p>
                       </div>
                   </div>
                   <div className='flex  items-center gap-4 my-4'>
@@ -196,7 +196,7 @@ const ProductDisplayPage = () => {
                       />
                       <div className='text-sm'>
                         <div className='font-semibold'>Wide Assortment</div>
-                        <p>Choose from 5000+ products across kitchen, household & other categories.</p>
+                        <p className='font-normal'>Choose from 5000+ products across kitchen, household & other categories.</p>
                       </div>
                   </div>
             </div>
@@ -205,18 +205,18 @@ const ProductDisplayPage = () => {
             <div className='my-4 grid gap-3 '>
                 <div>
                     <p className='font-semibold'>Description</p>
-                    <p className='text-base'>{data.description}</p>
+                    <p className='text-base font-normal'>{data.description}</p>
                 </div>
                 <div>
                     <p className='font-semibold'>Unit</p>
-                    <p className='text-base'>{data.unit}</p>
+                    <p className='text-base font-normal'>{data.unit}</p>
                 </div>
                 {
                   data?.more_details && Object.keys(data?.more_details).map((element,index)=>{
                     return(
                       <div>
                           <p className='font-semibold'>{element}</p>
-                          <p className='text-base'>{data?.more_details[element]}</p>
+                          <p className='text-base font-normal'>{data?.more_details[element]}</p>
                       </div>
                     )
                   })
