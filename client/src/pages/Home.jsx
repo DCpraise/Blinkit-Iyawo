@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import banner from '../assets/banner.jpg'
 import bannerMobile from '../assets/banner-mobile.jpg'
 import { useSelector } from 'react-redux'
 import { valideURLConvert } from '../utils/valideURLConvert'
 import {Link, useNavigate} from 'react-router-dom'
 import CategoryWiseProductDisplay from '../components/CategoryWiseProductDisplay'
+import video from '../assets/video.mp4'
+import video2 from '../assets/video 2.mp4'
+import video3 from '../assets/video3.mp4'
+import video4 from '../assets/video4.mp4'
 
 const Home = () => {
   const loadingCategory = useSelector(state => state.product.loadingCategory)
@@ -28,24 +32,93 @@ const Home = () => {
   }
 
 
+
+  const [currentImage,setCurrentImage] = useState(0)
+
+  const desktopImages = [
+      video,
+      video,
+     
+  ]
+  const mobileImages = [
+   video,
+  video4,
+  video3,
+  
+   
+]
+
+ 
+
+  const nextImage = () =>{
+      if(mobileImages.length - 1 > currentImage){
+          setCurrentImage(preve => preve + 1)
+      }
+  }
+
+  const preveImage = () =>{
+      if(currentImage != 0){
+          setCurrentImage(preve => preve - 1)
+      }
+  }
+
+
+  useEffect(()=>{
+      const interval = setInterval(()=>{
+          if(mobileImages.length - 1 > currentImage){
+              nextImage()
+          }else{
+              setCurrentImage(0)
+          }
+      }, 12000)
+
+      return ()=> clearInterval(interval)
+  },[currentImage])
+
+
   return (
    <section className='bg-white'>
       <div className='container mx-auto'>
-          <div className={`w-full h-full min-h-48 bg-blue-100 rounded ${!banner && "animate-pulse my-2" } `}>
-              <img
+          <div className={`w-full md:h-full  md:min-h-48 min-h-44  bg-blue-100 rounded  md:flex overflow-hidden ${!banner && "animate-pulse my-2" } `}>
+
+          {
+                        desktopImages.map((imageURl,index)=>{
+                            return(
+                            <div className='w-full h-full min-w-full min-h-full transition-all hidden lg:flex' key={imageURl} style={{transform : `translateX(-${currentImage * 100}%)`}}>
+                                <img src={imageURl} className='w-full h-full'/>
+                            </div>
+                            )
+                        })
+                }
+              {/* <img
                 src={banner}
                 className='w-full h-full hidden lg:block'
                 alt='banner' 
-              />
-              <img
+                 <video src={imageURl} className='w-full h-full object-cover'/>
+              /> */}
+
+
+           <div className='flex h-full w-full overflow-x-visible md:hidden'>
+                {
+                        mobileImages.map((imageURl,index)=>{
+                            return(
+                            <div className='w-full h-full min-w-full min-h-full transition-all' key={imageURl} style={{transform : `translateX(-${currentImage * 100}%)`}}>
+                             
+                                <video src={imageURl} autoPlay loop muted className='w-full h-40  p-2 overflow-scroll autoplay rounded-lg border-4 scroll-py-12 mt-1 bg-black '/>
+                            </div>
+                            )
+                        })
+                }
+              </div>
+              {/* <img
                 src={bannerMobile}
                 className='w-full h-full lg:hidden'
                 alt='banner' 
-              />
+              /> */}
           </div>
       </div>
       
-      <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
+      <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2 '>
           {
             loadingCategory ? (
               new Array(12).fill(null).map((c,index)=>{
@@ -63,10 +136,10 @@ const Home = () => {
                     <div>
                         <img 
                           src={cat.image}
-                          className='w-full h-full object-scale-down'
+                          className='w-full h-full object-scale-down rounded-md border-2 border-slate-200 '
                         />
                     </div>
-                    <div className='text-center text-sm font-semibold line-clamp-1 '>
+                    <div className='text-center text-xs md:text-sm  font-normal  line-clamp-1  '>
                     {cat?.name}
                     </div>
                   </div>
