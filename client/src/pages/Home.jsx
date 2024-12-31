@@ -133,13 +133,13 @@ const Home = () => {
               categoryData.map((cat,index)=>{
                 return(
                   <div key={cat._id+"displayCategory"} className='w-full h-full' onClick={()=>handleRedirectProductListpage(cat._id,cat.name)}>
-                    <div>
+                    <div  className=''>
                         <img 
                           src={cat.image}
-                          className='w-full h-full object-scale-down rounded-md border-2 border-slate-200 '
+                          className='w-full h-full object-scale-down rounded-md border-2 border-slate-200 bg-slate-200  '
                         />
                     </div>
-                    <div className='text-center text-xs md:text-sm  font-normal  line-clamp-1  '>
+                    <div className='text-center text-xs md:text-sm  font-normal  '>
                     {cat?.name}
                     </div>
                   </div>

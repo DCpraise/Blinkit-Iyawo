@@ -87,7 +87,7 @@ const CheckoutPage = () => {
 
 
 
-  const publicKey = "pk_live_c689790384e7edb27527a5d275dfb25077cd7d1f";
+  const publicKey = "pk_live_1c924d9bff773e90645fbd8b882affba5c6f98d0";
   const [ email, setEmail ] = useState("");
   const [error, SetError] = useState("")
   const [number,setNumber] = useState("")
@@ -203,8 +203,8 @@ const handleSumbmit = (event) => {
           <div className='py-2 px-4 bg-green-600 hover:bg-green-700 rounded text-white text-center font-semibold' type='submit'>
             <PaystackButton  {...componentProps} />
             </div>
-            <button className='py-2 px-4 border-2 border-green-600 font-semibold text-green-600 hover:bg-green-600 hover:text-white' onClick={handleCashOnDelivery}>Order via WhatsApp</button>
-          </div>
+{   //         <button className='py-2 px-4 border-2 border-green-600 font-semibold text-green-600 hover:bg-green-600 hover:text-white' onClick={handleCashOnDelivery}>Order via WhatsApp</button>
+}          </div>
         </div>
       </div>
 
